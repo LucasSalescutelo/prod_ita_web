@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Itaminas Prod</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'styles/cabecalho.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <video autoplay muted loop>
+            <source src="{% static 'img/global.MP4' %}" type="video/mp4">
+            Seu navegador não suporta vídeos em HTML5.
+        </video>    
+        <nav class="cabecalho_nav">
+            <ul class="cabecalho_nav_list">
+                <li>
+                    <h1 class="cabecalho_logo">
+                        <img src="{% static 'img/Itaminas-logo.png' %}" alt="itaminas_logo">
+                    </h1>
+                </li>
+                <li class="cabecalho__nav_list_item">
+                    <a href="#" class="cabecalho__nav_list_link">Indicadores</a>
+                </li>
+                <li class="cabecalho__nav_list_item">
+                    <a href="#" class="cabecalho__nav_list_link">Plataforma</a>
+                </li>
+                <li class="cabecalho__nav_list_item">
+                    <a href="#" class="cabecalho__nav_list_link">Produção</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Container com duas colunas -->
+    <div class="container">
+        <!-- Primeira coluna: Filtros -->
+        <div class="filtros">
+            <form method="get" action="">
+                <h3>Filtros</h3>
+
+                <label for="producao">Filtrar por Produção:</label>
+                <select name="producao" id="producao" multiple>
+                    <option value="ITM 04" {% if 'ITM 04' in producao_filtro %}selected{% endif %}>ITM 04</option>
+                    <option value="ITM 08" {% if 'ITM 08' in producao_filtro %}selected{% endif %}>ITM 08</option>
+                    <option value="ITM 02" {% if 'ITM 02' in producao_filtro %}selected{% endif %}>ITM 02 Principal</option>
+                    <option value="ITM 02 A" {% if 'ITM 02 A' in producao_filtro %}selected{% endif %}>ITM 02 A</option>
+                    <option value="ITM 02 B" {% if 'ITM 02 B' in producao_filtro %}selected{% endif %}>ITM 02 B</option>
+                    <option value="ITM 09" {% if 'ITM 09' in producao_filtro %}selected{% endif %}>ITM 09</option>
+                    <option value="Scalper" {% if 'Scalper' in producao_filtro %}selected{% endif %}>Scalper</option>
+                </select>
+
+                <label for="tipo_producao">Filtrar por Tipo de Produto:</label>
+                <select name="tipo_producao" id="tipo_producao" multiple>
+                    <option value="Pellet Feed" {% if 'Pellet Feed' in tipo_producao_filtro %}selected{% endif %}>Pellet Feed</option>
+                    <option value="Sinter Feed" {% if 'Sinter Feed' in tipo_producao_filtro %}selected{% endif %}>Sinter Feed</option>
+                    <option value="Sinter Feed Especial" {% if 'Sinter Especial' in tipo_producao_filtro %}selected{% endif %}>Sinter Feed Especial</option>
+                    <option value="Sinter Feed Premium"  {% if 'Sinter Premium'  in tipo_producao_filtro %}selected{% endif %}>Sinter Feed Premium</option>
+                    <option value="Hematitinha Especial"  {% if 'Hematitinha Especial'  in tipo_producao_filtro %}selected{% endif %}>Hematitinha Especial</option>
+                    <option value="Hematitinha Premium"  {% if 'Hematitinha Premium'  in tipo_producao_filtro %}selected{% endif %}>Hematitinha Premium</option>
+                    <option value="Hematitinha Comum"  {% if 'Hematitinha Comum'  in tipo_producao_filtro %}selected{% endif %}>Hematitinha Comum</option>
+                    <option value="Sinter Feed Especial Scalper" {% if 'Sinter Feed Especial Scalper' in tipo_producao_filtro %}selected{% endif %}>Sinter Feed Especial Scalper</option>
+                </select>
+
+                <label for="data_inicial">Data Inicial:</label>
+                <input type="date" id="data_inicial" name="data_inicial" value="{{ data_inicial_filtro|default:'' }}">
+
+                <label for="data_final">Data Final:</label>
+                <input type="date" id="data_final" name="data_final" value="{{ data_final_filtro|default:'' }}">
+
+                <button type="submit">Filtrar</button>
+            </form>
+        </div>
+
+        <!-- Segunda coluna: Gráfico -->
+        <div class="grafico">
+            <h3>Produção Mensal Total</h3>
+            <div class="grafico-container">
+                {{ grafico|safe }}
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Parte Dois**********...........***********-->
+    <div class="container02">
+
+        <div class="grafico_pizza">
+            <div class="pizza">
+                {{ grafico_pizza|safe }}
+            </div>
+        </div>
+
+        <div class="tabela">
+            <div class="tab">
+                {{ tabela|safe }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Parte Tres********************-->
+     
+<div class="container03">
+    <div class="grafico_barras">
+        {{grafico_orçado|safe}}
+    </div>
+
+
+
+    <div class="grafico_barras_fe">
+    </div>
+
+</div>
+
+</body>
+</html>

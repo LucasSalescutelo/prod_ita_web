@@ -1,0 +1,223 @@
+.cabecalho {
+    position: relative;
+    padding: 10px 2%;
+    width: 100%;
+    height: 190px; /* Ajusta a altura do cabeçalho para ocupar apenas o topo */
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+.cabecalho::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(20, 69, 112, 0.993) 0%, rgba(31, 64, 92, 0) 100%); /* Degradê azul para transparente */
+    z-index: 1; /* Fica acima do vídeo */
+}
+
+.cabecalho video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; /* Coloca o vídeo no fundo */
+}
+
+.cabecalho_nav {
+    position: relative;
+    z-index: 2; /* Garante que o conteúdo fique acima do vídeo e da camada azul */
+}
+
+.cabecalho_nav_list {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    list-style-type: none;
+    align-items: center;
+    width: 100%;
+}
+
+.cabecalho_logo img {
+    width: 200px; 
+    height: auto; 
+}
+
+.cabecalho__nav_list_link {
+    font-size: 20px;
+    line-height: 15px;
+    font-weight: 450;
+    text-decoration: none;
+    color: var(--cor-texto-principal);
+    text-align: center;
+    font-family: var(--fonte-texto);
+    position: relative;
+    padding-bottom: 3px;
+}
+
+.cabecalho__nav_list_link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--cor-texto-principal);
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.cabecalho__nav_list_link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+body {
+    background-color: #000000; 
+}
+
+.cabecalho {
+    position: relative;
+    padding: 10px 2%;
+    width: 100%;
+    height: 190px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.cabecalho::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Altura da faixa branca */
+    background-color: white; /* Cor da faixa */
+    z-index: 3; /* Coloca a faixa acima de outros elementos, se necessário */
+}
+/* Estilo para o contêiner do formulário */
+.grafico {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.grafico_pizza {
+    margin: 5px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+.tabela {
+    margin: 5px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Estilo para o <select> */
+#grafico select {
+    width: 100%; /* Alarga o seletor */
+    max-width: 400px; /* Limita o tamanho em telas grandes */
+    height: 200px; /* Aumenta a altura para mostrar múltiplas opções */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    outline: none;
+    overflow: auto;
+}
+
+/* Layout principal com duas colunas */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4.5fr; /* Primeira coluna menor para os filtros, segunda maior para o gráfico */
+    gap: 0px;
+    padding: 10px;
+}
+.container02 {
+    display: grid;
+    grid-template-columns: 1.3fr 2fr; /* Primeira coluna menor para os filtros, segunda maior para o gráfico */
+    gap: 0px;
+    padding: 10px;
+}
+
+/* Estilo para a área de filtros */
+.filtros {
+    background-color: #111;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Ajusta os selects e inputs dentro da área de filtros */
+.filtros select,
+.filtros input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 12px;
+}
+
+/* Botão de filtro */
+.filtros button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filtros button:hover {
+    background-color: #0056b3;
+}
+
+/* Área do gráfico */
+.grafico {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Área do gráfico */
+.grafico_pizza {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Área do gráfico */
+.tabela {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.grafico h3 {
+    text-align: center;
+    font-family: var(--fonte-texto);
+    font-size: 22px;
+    color: #646464;
+}
+
+.container03 {
+    display: grid;
+    grid-template-columns: 2fr 2fr; /* Primeira coluna menor para os filtros, segunda maior para o gráfico */
+    gap: 0px;
+    padding: 10px;
+}
